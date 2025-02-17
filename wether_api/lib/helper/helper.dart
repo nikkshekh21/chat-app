@@ -20,14 +20,14 @@ class WeatherHelper {
     }
   }
 
-  Future<Wetherapimodel2?> getData2(String s) async {
-    String link =
-        "api.openweathermap.org/data/2.5/forecast?q=surat&appid=f38665aa25cbf25ad8f3a75ece225e9d";
-    http.Response response = await http.get(Uri.parse(link));
+  Future<WeatherModal2?> getData2(String s) async {
+    String link2 =
+        "api.openweathermap.org/data/2.5/forecast?q=$s&appid=f38665aa25cbf25ad8f3a75ece225e9d";
+    http.Response response = await http.get(Uri.parse(link2));
 
     if (response.statusCode == 200) {
       var json = jsonDecode(response.body);
-      Wetherapimodel2 modal2 = Wetherapimodel2.maptomodel(json);
+      WeatherModal2 modal2 = WeatherModal2.maptomodel(json);
       return modal2;
     } else {
       print("*-*-error*-*- ${response.body}");

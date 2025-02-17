@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wether_api/helper/helper.dart';
 import 'package:wether_api/provider/wether-provider.dart';
+import 'package:wether_api/screens/bookmark/city_bookmark.dart';
 import 'package:wether_api/screens/detail_page/details.dart';
 import 'package:wether_api/screens/home-page/home_page.dart';
 
@@ -25,10 +26,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // initialRoute: '/',
       routes: {
         '/': (context) => const DetailsPage(),
         '/details': (context) => const HomePage(),
+        '/bookmark': (context) => const CityBookmark(),
       },
       title: 'Flutter Demo',
       theme: ThemeData.dark(),

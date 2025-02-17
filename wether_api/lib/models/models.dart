@@ -129,28 +129,38 @@ class SysModel {
     );
   }
 }
-///////////2222222222222222222222
 
-class Wetherapimodel2 {
-  List<Wetherapi2>? wether2;
-  Wetherapimodel2({this.wether2});
-  factory Wetherapimodel2.maptomodel(Map m1) {
-    List l = m1['list'];
-    return Wetherapimodel2(
-      wether2: l.map((e) => Wetherapi2.maptomodel(e)).toList(),
-    );
+class WeatherModal2 {
+  List<ListModal>? l = [];
+
+  WeatherModal2({this.l});
+
+  factory WeatherModal2.maptomodel(Map m1) {
+    List l1 = m1['list'];
+    return WeatherModal2(l: l1.map((e) => ListModal.maptomodel(e)).toList());
   }
 }
 
-class Wetherapi2 {
+class ListModal {
   String? dt_txt;
-  Wetherapi2({this.dt_txt});
-  factory Wetherapi2.maptomodel(Map m1) {
-    return Wetherapi2(
-      dt_txt: m1["dt_txt"],
-    );
+  MainModal2? mainModal2;
+
+  ListModal({this.mainModal2, this.dt_txt});
+
+  factory ListModal.maptomodel(Map m1) {
+    return ListModal(
+        dt_txt: m1['dt_txt'], mainModal2: MainModal2.maptomodel(m1['main']));
   }
 }
+
+class MainModal2 {
+  double? temp;
+  MainModal2({this.temp});
+  factory MainModal2.maptomodel(Map m1) {
+    return MainModal2(temp: m1['temp']);
+  }
+}
+
 // {
 // "coord": {
 // "lon": 72.8333,
@@ -196,3 +206,5 @@ class Wetherapi2 {
 // "name": "Surat",
 // "cod": 200
 // }
+
+///////////////////
